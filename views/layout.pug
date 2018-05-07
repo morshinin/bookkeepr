@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, initial-scale=1.0")
+	title BookKeepr | Keep track of your reading process
+	link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css")
+	link(rel="stylesheet", href="css/style.css")
+	link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+body
+	block header
+		header
+			nav
+				.nav-wrapper.container
+					a.brand-logo(href="/") BookKeepr
+					ul#nav-mobile.right.hide-on-med-and-down
+						li
+							a(href="/") Home
+						li
+							a(href="/about") About
+						li
+							a(href="/books") My Books
+	block main
+		main.container
+			.row
+				.col.s12.center
+					h1.red-text.text-darken-4.center Keep track of your book readings
+					a(href="/books").btn.red.accent-3 Start Now
+
+	footer.page-footer
+		.container
+			.row
+				.col.l6.s12
+					h5.white-text BookKeepr
+					p.grey-text.text-lighten-4 Keep track of your book readings
+				.col.l4.offset-l2.s12
+					h5.white-text Get in touch
+					ul
+						li.li
+							a.grey-text.text-lighten-4(href="#") inbox@morshinin.ru
+						li.li
+							a.grey-text.text-lighten-4(href="#") Telegram
+						li.li
+							a.grey-text.text-lighten-4(href="#") GitHub
+		.footer-copyright
+			.container
+				small Copyright &copy; Morshinin
+
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js")
+	script(src="js/main.js")

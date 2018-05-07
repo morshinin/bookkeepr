@@ -1,0 +1,62 @@
+extends layout
+block main
+	main
+		.container
+			.row
+				.col.s12
+					h2 Reading Progress Overview
+					table.striped.highlight.responsive-table
+						thead
+							tr
+								th Start
+								th Finish
+								th Title
+								th Author
+								th Status
+								th 
+						tbody
+						each book in books
+							tr
+								td= formatDate(book.dateStart, 'DD.MM.YYYY')
+								td= formatDate(book.dateEnd, 'DD.MM.YYYY')
+								td
+									a(href=`/books/${book._id}`)= book.bookTitle
+								td= book.bookAuthor
+								td= book.bookStatus
+								td
+									a.btn.grey.lighten-4.grey-text(href="/books/edit")
+										i.small.material-icons edit
+									form.inline-block(action=`/books/${book._id}?_method=DELETE` method="post")
+										input(type="hidden" name="_method" value="DELETE")
+										button.btn.grey.lighten-4.grey-text(type="submit")
+											i.small.material-icons delete
+					form(action="/books/add" method="post")
+						table
+							tbody
+								tr
+									td
+										.input-field
+											input.datepicker#dateStart(type="text" name="dateStart")
+											label(for="dateStart") Pick date
+									td
+										.input-field
+											input.datepicker#dateEnd(type="text" name="dateEnd")
+											label(for="dateEnd") Pick date
+									td
+										.input-field
+											input#bookTitle(type="text" name="bookTitle")
+											label(for="bookTitle") Book Title
+									td
+										.input-field
+											input#bookAuthor(type="text" name="bookAuthor")
+											label(for="bookAuthor") Choose author
+									td
+										.input-field
+											select#bookStatus(name="bookStatus")
+												option(value="" disabled selected) Choose status
+												option(value="In Progress") In Progress
+												option(value="Done") Done
+												option(value="Paused") Paused
+												option(value="Scheduled") Scheduled
+									td
+										button.btn.red.accent-4(type="submit") Add book

@@ -1,0 +1,12 @@
+body {
+	font: 400 18px/1.5 "Open Sans", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.inline-block {
+	display: inline-block;
+}

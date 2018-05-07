@@ -1,0 +1,21 @@
+extends ../layout
+block main
+	main.bookPage
+		.container
+			.row
+				.col.s12
+					h1= book.bookTitle
+					small= book.bookAuthor
+			.row
+				.col.s12.l8
+					if book.bookReview  
+						p= bookReview 
+					else 
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ipsam maxime, quidem qui, ut quos ratione voluptate consequatur cumque corporis vitae quasi vel vero eos et beatae iusto dolorum distinctio!
+				.col.s12.l4
+					dl
+						dt Date started
+						dd= formatDate(book.dateStart)
+					dl
+						dt Date finished
+						dd= formatDate(book.dateEnd)
